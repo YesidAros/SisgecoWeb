@@ -1,17 +1,31 @@
-/* Estilos generales del contenedor */
-.container {
+/* Reset de márgenes y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
     background: rgb(35,77,142);
     background: linear-gradient(90deg, rgba(35,77,142,1) 0%, rgba(132,181,117,1) 100%);
-    position: fixed;
-    width: 100%;
-    height: 100px;
-    z-index: 2000;
+    padding: 10px 20px;
+    color: white;
+    position: relative;
+}
+
+
+.container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Espacio entre logo y menú */
-    padding: 0 30px;
-    margin: 0;
-    box-sizing: border-box;
 }
 
 /* Estilos para el logo */
@@ -21,45 +35,34 @@
     width: clamp(100px, 10vw, 180px); /* Tamaño dinámico */
 }
 
-/* Estilos para el menú */
-.menu {  
-    
+/* Menú de navegación - Escritorio */
+.menu {
     display: flex;
-    justify-content: center;
-    
 }
 
 .menu ul {
-    display: flex;
-    gap: 15px;
-    padding: 0;
     list-style: none;
+    padding: 0;
     margin: 0;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    transition: color 0.3s;
-    margin: 0 5px;
+    display: flex;
+    gap: 20px;
 }
 
 .menu ul li a:hover {
     color: #1C355E;
 }
 
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-/* Ícono de menú hamburguesa */
+/* Estilos del menú hamburguesa en dispositivos móviles */
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 35px;
-    z-index: 3000;
 }
 
 .menu-toggle .bar {
@@ -70,33 +73,98 @@
     transition: 0.3s;
 }
 
+/* Slider */
+.slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 0;
+}
 
-/* Media Queries para dispositivos móviles */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #1C355E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Puntos de navegación */
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #1C355E;
+}
+
+/* Estilos solo para dispositivos móviles */
 @media (max-width: 768px) {
-
+    /* Ocultar el menú por defecto en móviles */
     .menu {
         display: none;
         position: absolute;
-        top: 100px;
-        right: 0;
+        top: 60px;
+        right: 20px;
         background-color: #1C355E;
-        width: 100%;
-        border-radius: 0px;
-        padding: 20px;
-        z-index: 2000;
+        padding: 10px;
+        border-radius: 5px;
+        flex-direction: column;
     }
 
-
-    .menu-toggle {
+    .menu.active {
         display: flex;
     }
 
-    /* Mostrar el menú cuando esté activo */
-    .menu.active {
-        display: block;
+    /* Mostrar el ícono de menú hamburguesa solo en móviles */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
     }
 
-    /* Animación del ícono hamburguesa a "X" */
+    .bar {
+        width: 25px;
+        height: 3px;
+        margin: 4px;
+        background-color: white;
+        transition: 0.3s;
+    }
+
+    /* Animación de la hamburguesa a "X" */
     .menu-toggle.active .bar:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -109,8 +177,3 @@
         transform: rotate(-45deg) translate(5px, -5px);
     }
 }
-
-   
-
-
-

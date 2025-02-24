@@ -4,11 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descripción de la empresa y sus servicios.">
-    <meta name="keywords" content="consultoría, sistemas de gestión, seguridad, calidad">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/slideshow.css">
-    <title>SISGECO - Sistema de Gestion Corporativa</title> <!-- Título actualizado -->
+    <title>SISGECO - Sistema de Gestión Corporativa</title>
 </head>
 
 <body>
@@ -18,10 +15,10 @@
                 <a href="#"><img src="images/logo.png" alt="SISGECO - Sistema de Gestión Corporativa"></a>
             </div>
 
-            <!--Menu de Navegacion-->
-            <nav class="menu">
+            <!-- Menú de Navegación -->
+            <nav class="menu" id="menu">
                 <ul>
-                    <li><a href="#menu"><b>Inicio</b></a></li>
+                    <li><a href="#inicio"><b>Inicio</b></a></li>
                     <li><a href="#servicios"><b>Servicios</b></a></li>
                     <li><a href="#quienessomos"><b>¿Quiénes Somos?</b></a></li>
                     <li><a href="#contacto"><b>Contacto</b></a></li>
@@ -37,6 +34,30 @@
         </div>
     </header>
 
+    <main>
+        <!-- Slider con puntos de navegación -->
+        <section class="slider">
+            <div class="slides">
+                <div class="slide active" data-index="0">
+                    <img src="images/slide1.jpg" alt="Imagen 1">
+                    <button onclick="window.location.href='https://www.google.com'">Mas Info</button>
+                </div>
+                <div class="slide" data-index="1">
+                    <img src="images/slide2.jpg" alt="Imagen 2">
+                    <button onclick="window.location.href='https://www.bing.com'">Mas Info</button>
+                </div>
+                <div class="slide" data-index="2">
+                    <img src="images/slide3.jpg" alt="Imagen 3">
+                    <button onclick="window.location.href='https://www.yahoo.com'">Mas Info</button>
+                </div>
+            </div>
+            <div class="dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </section>
+    </main>
 
     <script src="js/javascript.js"></script>
 </body>
